@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Read the train data from the file
-train = np.loadtxt('./liner.csv' , delimiter="," , skiprows=1)
+train = np.loadtxt('./regression/liner/liner.csv' , delimiter="," , skiprows=1)
 train_x = train[:,0] # [:,0] means all rows and column 0
 train_y = train[:,1]
 
@@ -40,7 +40,7 @@ def Updata_Parameters(x , y):
     theta1 = theta1 - eta * theta1_g
 
 # Loop to update the parameters
-for i in range(10000000):
+for i in range(10000):
     Updata_Parameters(train_x , train_y)
     if i % 10 == 0:
         print("Epoch:" , i , "theta0:" , theta0 , "theta1:" , theta1 ,"Error:" , Error(train_x , train_y))
