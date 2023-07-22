@@ -2,6 +2,7 @@ import numpy as np
 from collections import defaultdict
 import pickle
 import torch.nn as nn
+import torch
 
 seq = 'MVSKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITLGMDELYK'
 
@@ -20,6 +21,8 @@ def split_sequence(sequence, ngram):
     return np.array(words)
 
 word = split_sequence(seq, 3)
+
+word = torch.from_numpy(word)
 
 embed_word = nn.Embedding(len(word_dict), 3)
 
