@@ -6,7 +6,7 @@ pretrained_model_generator, input_encoder = load_pretrained_model(local_model_du
 
 model = pretrained_model_generator.create_model(seq_len = 512)
 
-input_ids = input_encoder.encode_X(seq , 512)
+input_ids = input_encoder.encode_X(sequence , 512)
 
 local_representations, global_representation = model.predict(input_ids)
 
